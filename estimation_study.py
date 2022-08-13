@@ -5,6 +5,7 @@
 
 '''
 import tensorflow as tf
+print("tensorflow version:",tf.__version__)
 import numpy as np
 import matplotlib.pyplot as plt
 import pdb
@@ -12,7 +13,6 @@ import os
 import pandas as pd
 import yaml
 import h5py
-print("tensorflow version:",tf.__version__)
 import vicon_imu_data_process.process_rawdata as pro_rd
 import estimation_assessment.scores as es_as
 
@@ -35,12 +35,6 @@ import time as localtimepkg
 from vicon_imu_data_process.dataset import *
 from estimation_models.rnn_models import *
 
-
-#subject_infos = pd.read_csv(os.path.join(DATA_PATH, 'subject_info.csv'), index_col=0)
-
-cpus=tf.config.list_logical_devices(device_type='CPU')
-gpus=tf.config.list_logical_devices(device_type='GPU')
-print(cpus,gpus)
 
 '''
 Set hyper parameters
@@ -84,7 +78,7 @@ def initParameters(labels_names=None,features_names=None):
 
 
 '''
-Main rountine for developing ANN model for biomechanic variable estimations
+Main rountine to train the ANN model for biomechanic variable estimations
 
 '''
 
@@ -182,5 +176,4 @@ def train_test_loops(hyperparams=None, fold_number=1, test_multi_trials=False):
 
 
 if __name__=='__main__':
-    pass
     train_test_loops(hyperparams=None, fold_number=1, test_multi_trials=False)

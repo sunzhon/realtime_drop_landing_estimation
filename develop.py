@@ -15,37 +15,7 @@ sys.path.append("./../")
 
 '''
 import tensorflow as tf
-# set hardware config
-#tf.debugging.set_log_device_placement(True)
-
-cpus = tf.config.experimental.list_physical_devices(device_type='CPU')
-gpus = tf.config.experimental.list_physical_devices(device_type='GPU')
-
-# set gpu memory grouth automatically
-#for gpu in gpus:
-#    tf.config.experimental.set_memory_growth(gpu, True)
-
-if(gpus!=[]):
-    # set virtal gpu/ logical gpu, create four logical gpu from a physical gpu (gpus[0])
-    tf.config.experimental.set_virtual_device_configuration(
-        gpus[0],
-        [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=3072),
-        tf.config.experimental.VirtualDeviceConfiguration(memory_limit=3072),
-        tf.config.experimental.VirtualDeviceConfiguration(memory_limit=3072),
-        tf.config.experimental.VirtualDeviceConfiguration(memory_limit=3072)
-        ]
-        )
-
-logical_cpus = tf.config.experimental.list_logical_devices(device_type='CPU')
-logical_gpus = tf.config.experimental.list_logical_devices(device_type='GPU')
-print('physical cpus and gpus: ',cpus, gpus)
-print('physical cpus number: ', len(cpus))
-print('physical cpgs number: ', len(gpus))
-print('logical cpus and gpus: ',logical_cpus, logical_gpus)
-print('logical cpgs number: ', len(logical_gpus))
-
-
-
+print("tensorflow version:",tf.__version__)
 import numpy as np
 import matplotlib.pyplot as plt
 import pdb
@@ -53,7 +23,6 @@ import os
 import pandas as pd
 import yaml
 import h5py
-print("tensorflow version:",tf.__version__)
 import vicon_imu_data_process.process_rawdata as pro_rd
 import estimation_assessment.scores as es_as
 import estimation_assessment.visualization as es_vl
@@ -72,8 +41,6 @@ from vicon_imu_data_process.process_rawdata import *
 
 from estimation_models.rnn_models import *
 from estimation_study import *
-
-
 from sklearn.preprocessing import StandardScaler
 
 from sklearn.model_selection import LeaveOneOut
@@ -83,8 +50,7 @@ import time as localtimepkg
 
 
 '''
-This function investigate the estimation metrics by 
-testing different sensor configurations and model LSTM layer size
+This function investigate the estimation metrics by testing different sensor configurations and model LSTM layer size
 
 '''
 
@@ -264,75 +230,21 @@ def integrative_investigation(investigation_variables, prefix_name='', test_mult
     return combination_testing_folders
 
 
-# ## Perform investigation by training model
 
-
-#1) The variables that are needed to be investigate
+# Configurations of model setup and training
 investigation_variables={
     "sensor_configurations":
                             {
-                             #    'F': ['FOOT'],
-                             #    'S': ['SHANK'],
-                             #    'T': ['THIGH'],
-                             #    'W': ['WAIST'],
-                             #    'C': ['CHEST']
-
-                             #   'FS': ['FOOT','SHANK'],
-                             #   'FT': ['FOOT','THIGH'],
-                             #   'FW': ['FOOT','WAIST'],
-                             #   'FC': ['FOOT','CHEST'],
-                             #   'ST': ['SHANK','THIGH'],
-                             #   'SW': ['SHANK','WAIST'],
-                             #   'SC': ['SHANK','CHEST'],
-                             #   'TW': ['THIGH','WAIST'], 
-                             #   'TC': ['THIGH', 'CHEST'],
-                             #   'WC': ['WAIST', 'CHEST']
-
-
-                             #   'FST': ['FOOT','SHANK','THIGH'], 
-                             #   'FSW': ['FOOT','SHANK','WAIST'],
-                             #   'FSC': ['FOOT','SHANK','CHEST'],
-                             #   'FTW': ['FOOT','THIGH','WAIST'],
-                             #   'FTC': ['FOOT','THIGH','CHEST'],
-                             #   'FWC': ['FOOT','WAIST', 'CHEST'],
-                             #   'STW': ['SHANK','THIGH','WAIST' ],
-                             #   'STC': ['SHANK','THIGH','CHEST' ],
-                             #   'SWC': ['SHANK','WAIST','CHEST' ],
-                             #   'TWC': ['THIGH','WAIST', 'CHEST']
-
-                             #   'FSTW': ['FOOT','SHANK','THIGH','WAIST'], 
                                 'FSTC': ['FOOT','SHANK','THIGH','CHEST'] # optimal config for vGRF during double-leg drop landing
-                             #   'FSWC': ['FOOT','SHANK','WAIST', 'CHEST'],
-                             #   'FTWC': ['FOOT','THIGH','WAIST', 'CHEST'],
-                             #   'STWC': ['SHANK','THIGH','WAIST', 'CHEST']
-
-                             #  'FSTWC': ['FOOT','SHANK','THIGH','WAIST', 'CHEST']
-                             #   'None':[]
                              },
     
-    #"syn_features_labels": [True, False],
     "syn_features_labels": [False],
-    #"use_frame_index": [True, False],
     "use_frame_index": [True],
-    #'estimated_variables': [['KNEE_MOMENT_X'], ['GRF_Z']],  # KFM, KAM, GRF
     'estimated_variables': [['GRF_Z']],
-    #"landing_manners": [ 'double_legs', 'single_leg'],
     "landing_manners": ['double_legs'],
     "window_size" :[4],
     "shift_step" : 1,
     
-    #"lstm_units": [1, 5, 10, 20, 30, 50,  150, 170, 180, 200],
-    #"lstm_units": [ 50, 75 ,100, 120, 130, 150, 170, 180, 200],
-    #"lstm_units": [15, 20, 25, 30, 35]
-    #"lstm_units": [5, 10]
-    #"lstm_units": [1, 5,10,15,20,25,30,35,40,45,50],
-    #"lstm_units": [55,60,65,70,75,80],
-    #"lstm_units": [85,90,95,100,105,110,115,120,125,130],
-    #"lstm_units": [135,140,145,150,155,160,165,170,175,180,185,190,195,200],
-    #"lstm_units": [1, 50, 100, 150, 200],
-    "lstm_units": [1, 50, 100, 150, 200],
-    "lstm_units": [25, 75, 125, 175],
-    "lstm_units": [1, 25, 50, 75, 100, 125, 150, 175, 200],
     "lstm_units": [130],
     'target_leg': 'R',
     'additional_IMUs': {
@@ -349,18 +261,6 @@ investigation_variables={
 }
 
 
-##*******************###
-
-# GRF_X estimation R2 is 0.11, it is not good
-# KNEE_ANGLE_X estimation with five IMUs R2 is 0.72, it is not good
-# KNEE_ANGLE_X estimation with shank and thigh R2 is 0.72, it is not good
-
 if __name__ == "__main__":
-    #2) investigate model
-    combination_investigation_results = integrative_investigation(investigation_variables,prefix_name='GRF_X',fold_number=10, test_multi_trials=True)
-
+    combination_investigation_results = integrative_investigation(investigation_variables,prefix_name='GRF_X',fold_number=16, test_multi_trials=True)
     print(combination_investigation_results)
-
-# ## exit machine and save environment
-#os.system("export $(cat /proc/1/environ |tr '\\0' '\\n' | grep MATCLOUD_CANCELTOKEN)&&/public/script/matncli node cancel -url https://matpool.com/api/public/node -save -name suntao_env")
-
