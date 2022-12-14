@@ -148,8 +148,8 @@ def integrative_investigation(investigation_variables, prefix_name='', test_mult
                             # set subjects and trials
                             #hyperparams['raw_dataset_path'] = os.path.join(DATA_PATH,'features_labels_rawdatasets.hdf5')
                             hyperparams['raw_dataset_path'] = os.path.join(DATA_PATH,'features_labels_rawdatasets.hdf5')
-                            selected_dataset = pro_rd.load_subjects_dataset(subjects_trials=None, h5_file_name=hyperparams['raw_dataset_path'])
-                            hyperparams['subjects_trials'] = pro_rd.set_subjects_trials(landing_manner=landing_manner, target_leg=target_leg,selected_dataset=selected_dataset)
+                            hyperparams['subjects_trials'] = pro_rd.set_subjects_trials(landing_manner=landing_manner, 
+                                                                                        target_leg=target_leg, selected_dataset_path=hyperparams['raw_dataset_path'])
 
                             #v) model size configuations
                             for lstm_unit in lstm_units:
