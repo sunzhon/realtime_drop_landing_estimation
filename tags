@@ -1,0 +1,300 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACC_GYRO_FIELDS	vicon_imu_data_process/const.py	/^ACC_GYRO_FIELDS = ['Accel_X', 'Accel_Y', 'Accel_Z', 'Gyro_X', 'Gyro_Y', 'Gyro_Z']$/;"	v
+ALL_FIELDS	vicon_imu_data_process/const.py	/^ALL_FIELDS = DISCRETE_FIELDS + CONTINUOUS_FIELDS$/;"	v
+ANKLE_VALUES	vicon_imu_data_process/const.py	/^ANKLE_VALUES=['AnkleAngle','AnkleMoment']$/;"	v
+BASIC_COP_DATA_FIELDS	vicon_imu_data_process/const.py	/^BASIC_COP_DATA_FIELDS=['COP']$/;"	v
+BASIC_KNEE_DATA_FIELDS	vicon_imu_data_process/const.py	/^BASIC_KNEE_DATA_FIELDS=['KneeAngle_X','KneeAngle_Y','KneeMoment_X','KneeMoment_Y']$/;"	v
+BASIC_V3D_DATA_FIELDS	vicon_imu_data_process/const.py	/^BASIC_V3D_DATA_FIELDS=[variable+direction for variable in BIOMECHANICS_VARIABLES for direction in ['','.1','.2']]  $/;"	v
+BIOMECHANICS_VARIABLES	vicon_imu_data_process/const.py	/^BIOMECHANICS_VARIABLES=['GRF','FPA','ANKLE_ANGLE','ANKLE_MOMENT','KNEE_ANGLE','KNEE_MOMENT','HIP_ANGLE','HIP_MOMENT']$/;"	v
+CONTINUOUS_FIELDS	vicon_imu_data_process/const.py	/^                    JOINT_LIST + SEGMENT_DATA_FIELDS$/;"	v
+DATA_PATH	vicon_imu_data_process/const.py	/^DATA_PATH = os.path.join(MEDIA_NAME,"drop_landing_workspace","data")$/;"	v
+DATA_VISULIZATION_PATH	vicon_imu_data_process/const.py	/^DATA_VISULIZATION_PATH = os.path.join(RESULTS_PATH,'datasets_files','dataset_visulization')$/;"	v
+DIRECTIONS	vicon_imu_data_process/const.py	/^DIRECTIONS=['_X','_Y','_Z']$/;"	v
+DISCRETE_FIELDS	vicon_imu_data_process/const.py	/^DISCRETE_FIELDS = STATIC_DATA + PHASE_LIST$/;"	v
+DROPLANDING_PERIOD	vicon_imu_data_process/const.py	/^DROPLANDING_PERIOD=80 # 落地后的0.5秒内， 这是研究每次落地实验的时间范围$/;"	v
+DROPLANDING_PERIOD_END	vicon_imu_data_process/const.py	/^DROPLANDING_PERIOD_END = DROPLANDING_PERIOD\/4*3-1$/;"	v
+DROPLANDING_PERIOD_SATRT	vicon_imu_data_process/const.py	/^DROPLANDING_PERIOD_SATRT = DROPLANDING_PERIOD\/4$/;"	v
+DYNAMIC_TRIALS	vicon_imu_data_process/const.py	/^DYNAMIC_TRIALS = ['baseline', 'fpa_01', 'fpa_02','fpa_03','fpa_04','fpa_05','single']$/;"	v
+DivideMaxScalar	vicon_imu_data_process/wearable_toolkit.py	/^class DivideMaxScalar(MinMaxScaler):$/;"	c
+ESTIMATION_SENSOR_CONFIGURATIONS	vicon_imu_data_process/const.py	/^ESTIMATION_SENSOR_CONFIGURATIONS = {$/;"	v
+EXAMPLE_DATA_FIELDS	vicon_imu_data_process/const.py	/^EXAMPLE_DATA_FIELDS = [$/;"	v
+EXT_KNEE_MOMENT	vicon_imu_data_process/const.py	/^EXT_KNEE_MOMENT = ['EXT_KM_X', 'EXT_KM_Y', 'EXT_KM_Z']$/;"	v
+FEATURES_FIELDS	vicon_imu_data_process/const.py	/^FEATURES_FIELDS = extract_imu_fields(IMU_SENSOR_LIST, IMU_RAW_FIELDS)$/;"	v
+FONT_DICT	vicon_imu_data_process/const.py	/^FONT_DICT = {'fontsize': FONT_SIZE, 'fontname': 'Arial'}$/;"	v
+FONT_DICT_LARGE	vicon_imu_data_process/const.py	/^FONT_DICT_LARGE = {'fontsize': FONT_SIZE_LARGE, 'fontname': 'Arial'}$/;"	v
+FONT_DICT_SMALL	vicon_imu_data_process/const.py	/^FONT_DICT_SMALL = {'fontsize': FONT_SIZE_SMALL, 'fontname': 'Arial'}$/;"	v
+FONT_DICT_X_SMALL	vicon_imu_data_process/const.py	/^FONT_DICT_X_SMALL = {'fontsize': 15, 'fontname': 'Arial'}$/;"	v
+FONT_SIZE	vicon_imu_data_process/const.py	/^FONT_SIZE = 20$/;"	v
+FONT_SIZE_LARGE	vicon_imu_data_process/const.py	/^FONT_SIZE_LARGE = 24$/;"	v
+FONT_SIZE_SMALL	vicon_imu_data_process/const.py	/^FONT_SIZE_SMALL = 18$/;"	v
+FORCE	vicon_imu_data_process/const.py	/^FORCE=['Force']$/;"	v
+FORCE_DATA_FIELDS	vicon_imu_data_process/const.py	/^FORCE_DATA_FIELDS = ['plate_' + num + '_' + data_type + '_' + axis for num in ['1', '2']$/;"	v
+FORCE_DATA_FIELDS	vicon_imu_data_process/const.py	/^FORCE_DATA_FIELDS=  [lr + 'Force' + dire for lr in LEFT_RIGHT for dire in DIRECTIONS]$/;"	v
+FPA_VALUES	vicon_imu_data_process/const.py	/^FPA_VALUES=['FPA']$/;"	v
+GRAVITY	vicon_imu_data_process/const.py	/^GRAVITY = 9.81$/;"	v
+GUESSED_EVENT_INDEX	vicon_imu_data_process/wearable_toolkit.py	/^    GUESSED_EVENT_INDEX = 0$/;"	v	class:SageCsvReader
+HIP_VALUES	vicon_imu_data_process/const.py	/^HIP_VALUES=['HipAngle','HipMoment']$/;"	v
+IMU_DATA_FIELDS	vicon_imu_data_process/const.py	/^IMU_DATA_FIELDS = extract_imu_fields(IMU_SENSOR_LIST, IMU_FIELDS)$/;"	v
+IMU_FEATURES_FIELDS	vicon_imu_data_process/const.py	/^IMU_FEATURES_FIELDS = extract_imu_fields(IMU_SENSOR_LIST, IMU_RAW_FIELDS)$/;"	v
+IMU_FIELDS	vicon_imu_data_process/const.py	/^IMU_FIELDS = ['Accel_X', 'Accel_Y', 'Accel_Z', 'Gyro_X', 'Gyro_Y', 'Gyro_Z', 'Mag_X', 'Mag_Y', 'Mag_Z', 'Quat_1', 'Quat_2',$/;"	v
+IMU_RAW_FIELDS	vicon_imu_data_process/const.py	/^IMU_RAW_FIELDS = ['Accel_X', 'Accel_Y', 'Accel_Z', 'Gyro_X', 'Gyro_Y', 'Gyro_Z', 'Mag_X', 'Mag_Y', 'Mag_Z']$/;"	v
+IMU_SENSOR_LIST	vicon_imu_data_process/const.py	/^IMU_SENSOR_LIST = ['CHEST','WAIST', 'R_THIGH', 'R_SHANK','R_FOOT','L_THIGH','L_SHANK','L_FOOT']$/;"	v
+JOINT_LIST	vicon_imu_data_process/const.py	/^JOINT_LIST = [marker + '_' + axis for axis in ['X', 'Y', 'Z'] for marker in sum(SEGMENT_DEFINITIONS.values(), [])]$/;"	v
+KNEE_DATA_FIELDS	vicon_imu_data_process/const.py	/^KNEE_DATA_FIELDS = [lr + knee + dire for lr in LEFT_RIGHT for knee in KNEE_VALUES for dire in DIRECTIONS[:2]]$/;"	v
+KNEE_VALUES	vicon_imu_data_process/const.py	/^KNEE_VALUES=['KneeAngle','KneeMoment']$/;"	v
+LABELS_FIELDS	vicon_imu_data_process/const.py	/^LABELS_FIELDS =  [ 'R_KNEE_MOMENT_X','R_KNEE_MOMENT_Y','R_KNEE_MOMENT_Z','R_GRF_X','R_GRF_Y', 'R_GRF_Z']$/;"	v
+LEFT_RIGHT	vicon_imu_data_process/const.py	/^LEFT_RIGHT=['L_','R_']$/;"	v
+LEVER_ARM_FIELDS	vicon_imu_data_process/const.py	/^LEVER_ARM_FIELDS = ['r_x', 'r_y', 'r_z']$/;"	v
+LINE_WIDTH	vicon_imu_data_process/const.py	/^LINE_WIDTH = 2$/;"	v
+LINE_WIDTH_THICK	vicon_imu_data_process/const.py	/^LINE_WIDTH_THICK = 3$/;"	v
+LOAD_SUBJECTS_TRIALS	vicon_imu_data_process/const.py	/^LOAD_SUBJECTS_TRIALS={subject:[] for subject in SUBJECTS}$/;"	v
+MEDIA_NAME	vicon_imu_data_process/const.py	/^    MEDIA_NAME = "\/media\/sun\/DATA\/"$/;"	v
+MEDIA_NAME	vicon_imu_data_process/const.py	/^MEDIA_NAME=os.environ.get("MEDIA_NAME")$/;"	v
+NEEDED_FORCE_PLATED_DATA_FIELDS	vicon_imu_data_process/const.py	/^NEEDED_FORCE_PLATED_DATA_FIELDS=['- Force', '- CoP']$/;"	v
+OPENPOSE_MODEL_PATH	vicon_imu_data_process/const.py	/^OPENPOSE_MODEL_PATH = os.environ.get('OPENPOSE_MODEL_PATH')$/;"	v
+PELVIS_VALUES	vicon_imu_data_process/const.py	/^PELVIS_VALUES=['PelvisAngle']$/;"	v
+RESULTS_PATH	vicon_imu_data_process/const.py	/^RESULTS_PATH = os.path.join(MEDIA_NAME,"drop_landing_workspace\/results")$/;"	v
+RESULT_FOLDER	assessment/visualization.py	/^RESULT_FOLDER="\/media\/sun\/DATA1\/drop_landing_workspace\/results\/training_testing\/P5_results"$/;"	v
+RKNEE_MARKER_FIELDS	vicon_imu_data_process/const.py	/^RKNEE_MARKER_FIELDS = [marker + axis for marker in ['RFME', 'RFLE'] for axis in ['_X', '_Y', '_Z']]$/;"	v
+SAMPLES_AFTER_STEP	vicon_imu_data_process/const.py	/^SAMPLES_AFTER_STEP = 20$/;"	v
+SAMPLES_BEFORE_STEP	vicon_imu_data_process/const.py	/^SAMPLES_BEFORE_STEP = 20$/;"	v
+SAMPLE_FREQUENCY	vicon_imu_data_process/const.py	/^SAMPLE_FREQUENCY=100.0 # 100 Hz$/;"	v
+SEGMENT_DATA_FIELDS	vicon_imu_data_process/const.py	/^SEGMENT_DATA_FIELDS = [seg_name + '_' + axis for axis in ['X', 'Y', 'Z'] for seg_name in SEGMENT_DEFINITIONS.keys()]$/;"	v
+SEGMENT_DEFINITIONS	vicon_imu_data_process/const.py	/^SEGMENT_DEFINITIONS = {$/;"	v
+SEGMENT_MASS_PERCENT	vicon_imu_data_process/const.py	/^SEGMENT_MASS_PERCENT = {'L_FOOT': 1.37, 'R_FOOT': 1.37, 'R_SHANK': 4.33, 'R_THIGH': 14.16,$/;"	v
+SENSOR_COMBINATION	vicon_imu_data_process/const.py	/^SENSOR_COMBINATION = ['8IMU_2camera', '8IMU', '3IMU_2camera', '3IMU', '1IMU_2camera', '1IMU', '2camera']$/;"	v
+SENSOR_COMBINATION_SORTED	vicon_imu_data_process/const.py	/^SENSOR_COMBINATION_SORTED = ['8IMU_2camera', '3IMU_2camera', '8IMU', '1IMU_2camera', '3IMU', '2camera', '1IMU']$/;"	v
+SESSIONS	vicon_imu_data_process/const.py	/^SESSIONS=['20210930_vicon','20211015_vicon','20211022_vicon','20211025_vicon','20211026_vicon'] # vicon experiment sessions$/;"	v
+STATIC_TRIALS	vicon_imu_data_process/const.py	/^STATIC_TRIALS = ['static']$/;"	v
+STEP_TYPE	vicon_imu_data_process/const.py	/^STEP_TYPE = STANCE$/;"	v
+SUBJECTS	vicon_imu_data_process/const.py	/^SUBJECTS = [$/;"	v
+SYN_DROPLANDING_PERIOD	vicon_imu_data_process/const.py	/^SYN_DROPLANDING_PERIOD=60 # synchronize imus and GRFs by shift and crop them into this period$/;"	v
+SageCsvReader	vicon_imu_data_process/wearable_toolkit.py	/^class SageCsvReader:$/;"	c
+THORAX_VALUES	vicon_imu_data_process/const.py	/^THORAX_VALUES=['ThoraxAngle']$/;"	v
+TRAIN_USED_TRIALS_DOUBLE_LEG	vicon_imu_data_process/const.py	/^TRAIN_USED_TRIALS_DOUBLE_LEG = [str(idx) if idx>9 else '0'+str(idx) for idx in range(1,TRAIN_USED_TRIAL_NUM+1,1)]  #trial number$/;"	v
+TRAIN_USED_TRIALS_SINGLE_LEG	vicon_imu_data_process/const.py	/^TRAIN_USED_TRIALS_SINGLE_LEG = [str(idx) for idx in range(31,41,1)]  #trial number$/;"	v
+TRAIN_USED_TRIAL_NUM	vicon_imu_data_process/const.py	/^TRAIN_USED_TRIAL_NUM=30$/;"	v
+TRIALS	vicon_imu_data_process/const.py	/^TRIALS = [str(idx) if idx > 9 else '0' + str(idx) for idx in range(1,TRIAL_NUM+1,1)]  #trial number$/;"	v
+TRIAL_NUM	vicon_imu_data_process/const.py	/^TRIAL_NUM = 40$/;"	v
+TRUE_EVENT_INDEX	vicon_imu_data_process/wearable_toolkit.py	/^    TRUE_EVENT_INDEX = 0$/;"	v	class:Visual3dCsvReader
+V3DReader	vicon_imu_data_process/load_rawdata.py	/^class V3DReader():$/;"	c
+V3D_DATA_FIELDS	vicon_imu_data_process/const.py	/^V3D_DATA_FIELDS=['LON','RON'] + ['LEFT_'+ temp for temp in BASIC_V3D_DATA_FIELDS] + ['RIGHT_'+temp for temp in BASIC_V3D_DATA_FIELDS] + ['PELVIS_ANGLE','PELVIS_ANGLE.1','PELVIS_ANGLE.2','THORAX_ANGLE','THORAX_ANGLE.1','THORAX_ANGLE.2']$/;"	v
+V3D_LABELS_FIELDS	vicon_imu_data_process/const.py	/^V3D_LABELS_FIELDS = ['LON','RON']+['L_'+ temp + dire for temp in BIOMECHANICS_VARIABLES for dire in DIRECTIONS] + ['R_'+temp + dire for temp in BIOMECHANICS_VARIABLES for dire in DIRECTIONS] + [temp + dire for temp in ['PELVIS_ANGLE','THORAX_ANGLE'] for dire in DIRECTIONS]$/;"	v
+VIDEO_ANGLES	vicon_imu_data_process/const.py	/^VIDEO_ANGLES = ["90", "180"]$/;"	v
+VIDEO_DATA_FIELDS	vicon_imu_data_process/const.py	/^VIDEO_DATA_FIELDS = extract_video_fields(VIDEO_LIST, VIDEO_ANGLES)$/;"	v
+VIDEO_LIST	vicon_imu_data_process/const.py	/^VIDEO_LIST = ["LShoulder", "RShoulder", "MidHip", "RHip", "LHip", "RKnee", "LKnee", "RAnkle", "LAnkle", "RHeel",$/;"	v
+VIDEO_ORIGINAL_SAMPLE_RATE	vicon_imu_data_process/const.py	/^VIDEO_ORIGINAL_SAMPLE_RATE = 119.99014859206962$/;"	v
+VIDEO_PATH	vicon_imu_data_process/const.py	/^VIDEO_PATH = os.environ.get('VIDEO_DATA_PATH')$/;"	v
+ViconCsvReader	vicon_imu_data_process/wearable_toolkit.py	/^class ViconCsvReader:$/;"	c
+ViconReader	vicon_imu_data_process/load_rawdata.py	/^class ViconReader():$/;"	c
+Visual3dCsvReader	vicon_imu_data_process/wearable_toolkit.py	/^class Visual3dCsvReader:$/;"	c
+WRONG_TRIALS	vicon_imu_data_process/const.py	/^WRONG_TRIALS={subject:[] for subject in SUBJECTS}$/;"	v
+XSEN_IMU_ID	vicon_imu_data_process/const.py	/^XSEN_IMU_ID={'MASTER':'0120092C','CHEST':'00B44914','WAIST':'00B44918','L_THIGH':'00B44915','L_SHANK':'00B44909','L_FOOT':'00B44907','R_THIGH':'00B4490C','R_SHANK':'00B4490E','R_FOOT':'00B44911'}$/;"	v
+XsenReader	vicon_imu_data_process/load_rawdata.py	/^class XsenReader():$/;"	c
+XsenTxtReader	vicon_imu_data_process/wearable_toolkit.py	/^class XsenTxtReader():$/;"	c
+__find_stationary_phase	vicon_imu_data_process/wearable_toolkit.py	/^    def __find_stationary_phase(gyr_magnitude, acc_magnitude, foot_stationary_acc_thd, foot_stationary_gyr_thd):$/;"	m	class:SageCsvReader	file:
+__find_stationary_phase_2	vicon_imu_data_process/wearable_toolkit.py	/^    def __find_stationary_phase_2(gyr_magnitude, acc_magnitude, foot_stationary_acc_thd, foot_stationary_gyr_thd):$/;"	m	class:SageCsvReader	file:
+__find_zero_crossing	vicon_imu_data_process/wearable_toolkit.py	/^    def __find_zero_crossing(self, gyr_x, foot_stationary_gyr_thd, i_sample):$/;"	m	class:SageCsvReader	file:
+__init__	vicon_imu_data_process/load_rawdata.py	/^    def __init__(self, subject_info, session):$/;"	m	class:ViconReader
+__init__	vicon_imu_data_process/load_rawdata.py	/^    def __init__(self,subject_info,session):$/;"	m	class:V3DReader
+__init__	vicon_imu_data_process/load_rawdata.py	/^    def __init__(self,subject_info,session):$/;"	m	class:XsenReader
+__init__	vicon_imu_data_process/wearable_toolkit.py	/^    def __init__(self, file_path):$/;"	m	class:SageCsvReader
+__init__	vicon_imu_data_process/wearable_toolkit.py	/^    def __init__(self, file_path,subject_name,trial):$/;"	m	class:Visual3dCsvReader
+__init__	vicon_imu_data_process/wearable_toolkit.py	/^    def __init__(self, file_path,trial=None, segment_definitions=None, static_trial=None, subject_info=None):$/;"	m	class:ViconCsvReader
+__init__	vicon_imu_data_process/wearable_toolkit.py	/^    def __init__(self,folder_path, subject_name, trial):$/;"	m	class:XsenTxtReader
+append_external_kam	vicon_imu_data_process/wearable_toolkit.py	/^    def append_external_kam(self):$/;"	m	class:ViconCsvReader
+augment_subjects_trials_dataset	vicon_imu_data_process/data_augment.py	/^    augment_subjects_trials_dataset = imu_data_augment(subjects_trials_dataset,rot_matrix,save_to_hdf5 = "5_augment_features_labels_rawdatasets")$/;"	v
+boxplot_IMU_number_accuracy	assessment/visualization.py	/^def boxplot_IMU_number_accuracy(combination_investigation_results, landing_manner='both', estimated_variable='both', syn_features_label='both', use_frame_index='both',LSTM_unit='all', IMU_number='all',title=None, drop_value=None, metric_fields=['r2'], hue=None):$/;"	f
+boxplot_single_imu_estimation_accuracy	assessment/visualization.py	/^def boxplot_single_imu_estimation_accuracy(combination_investigation_results):$/;"	f
+calculate_model_time_complexity	assessment/scores.py	/^def calculate_model_time_complexity(model, series, hyperparams):$/;"	f
+calculate_scores	assessment/scores.py	/^def calculate_scores(y_true, y_pred):$/;"	f
+calculate_statistic_variable	vicon_imu_data_process/process_rawdata.py	/^def calculate_statistic_variable(data: list, col_names:list, displayed_variables, subjects: list, trial_categories, statistic_methods='max',statistic_value_name='KAM'):$/;"	f
+calibrate_force_plate_center	vicon_imu_data_process/wearable_toolkit.py	/^def calibrate_force_plate_center(file_path, plate_num):$/;"	f
+combination_investigation_results	assessment/scores.py	/^    combination_investigation_results = "\/media\/sun\/DATA\/Drop_landing_workspace\/suntao\/Results\/Experiment_results\/investigation\/2022-05-24\/205937\/GRFtesting_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/scores.py	/^    combination_investigation_results = RESULT_FOLDER+"\/4_collected_sensor_lstm\/3_imu\/3_imu_25_lstm_units\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/scores.py	/^    combination_investigation_results = RESULT_FOLDER+"\/4_collected_sensor_lstm\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/scores.py	/^    combination_investigation_results = RESULT_FOLDER+"\/latest_train\/001\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/scores.py	/^    combination_investigation_results = RESULT_FOLDER+"\/latest_train\/10_14\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/scores.py	/^    combination_investigation_results = RESULT_FOLDER+"\/latest_train\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/scores.py	/^    combination_investigation_results = RESULT_FOLDER+"\/latest_train_bk\/08_30\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/scores.py	/^    combination_investigation_results = RESULT_FOLDER+"\/new_alignment\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/visualization.py	/^        combination_investigation_results = RESULT_FOLDER+"\/1_collected_data\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/visualization.py	/^        combination_investigation_results = RESULT_FOLDER+"\/3_collected_modeling\/additional_imu_all_imu_all_lstm_double_GRF\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/visualization.py	/^        combination_investigation_results = RESULT_FOLDER+"\/Four_variable_optimal_imu_config\/KEM_double_legs\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/visualization.py	/^        combination_investigation_results = RESULT_FOLDER+"\/Four_variable_optimal_imu_config\/KEM_single_leg\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/visualization.py	/^        combination_investigation_results = RESULT_FOLDER+"\/Four_variable_optimal_imu_config\/vGRF_double_legs\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/visualization.py	/^        combination_investigation_results = RESULT_FOLDER+"\/Four_variable_optimal_imu_config\/vGRF_single_leg\/testing_result_folders.txt"$/;"	v
+combination_investigation_results	assessment/visualization.py	/^        combination_investigation_results = [t1, t2] +t3$/;"	v
+combination_investigation_results	assessment/visualization.py	/^        combination_investigation_results = [t_right, t_left]$/;"	v
+combination_investigation_results	develop.py	/^    combination_investigation_results = integrative_investigation(investigation_variables, prefix_name='GRF_X',fold_number=16, test_multi_trials=True)$/;"	v
+create_step_id	vicon_imu_data_process/wearable_toolkit.py	/^    def create_step_id(self, segment, verbose=False):$/;"	m	class:SageCsvReader
+create_step_id	vicon_imu_data_process/wearable_toolkit.py	/^    def create_step_id(self, step_type):$/;"	m	class:Visual3dCsvReader
+create_testing_files	vicon_imu_data_process/process_rawdata.py	/^def create_testing_files(training_folder):$/;"	f
+create_training_files	vicon_imu_data_process/process_rawdata.py	/^def create_training_files(model_object=None, hyperparams={'lr':0}, base_folder=os.path.join(RESULTS_PATH,'training_testing\/')):$/;"	f
+crop	vicon_imu_data_process/wearable_toolkit.py	/^    def crop(self, start_index):$/;"	m	class:SageCsvReader
+crop	vicon_imu_data_process/wearable_toolkit.py	/^    def crop(self, start_index):$/;"	m	class:ViconCsvReader
+crop	vicon_imu_data_process/wearable_toolkit.py	/^    def crop(self, start_index, end_index):$/;"	m	class:XsenTxtReader
+crop	vicon_imu_data_process/wearable_toolkit.py	/^    def crop(self, start_index=0, end_index=None):$/;"	m	class:Visual3dCsvReader
+data	vicon_imu_data_process/process_rawdata.py	/^            data = pd.DataFrame(data=subjects_trials_data[subject][trial], columns=hyperparams['columns_names'])$/;"	v
+data	vicon_imu_data_process/process_rawdata.py	/^    data=pd.DataFrame(data=subjects_trials_data['P_11_liuchunyu']['12'], columns=hyperparams['columns_names'])$/;"	v
+data_filter	vicon_imu_data_process/wearable_toolkit.py	/^def data_filter(data, cut_off_fre, sampling_fre, filter_order=4):$/;"	f
+display_bio_variables	vicon_imu_data_process/process_rawdata.py	/^    display_bio_variables = ['L_FPA_Z','R_FPA_Z', 'L_FPA_X','R_FPA_X',  'L_KNEE_MOMENT_X','R_KNEE_MOMENT_X','R_KNEE_MOMENT_Y',  'R_KNEE_MOMENT_Z','L_KNEE_MOMENT_Z',  'L_KNEE_MOMENT_Y','L_KNEE_ANGLE_Y','R_KNEE_ANGLE_Y',  'L_KNEE_ANGLE_X','R_KNEE_ANGLE_X',   'L_KNEE_ANGLE_Z','R_KNEE_ANGLE_Z' ,'PELVIS_ANGLE_X','THORAX_ANGLE_X']$/;"	v
+display_bio_variables	vicon_imu_data_process/process_rawdata.py	/^    display_bio_variables = ['L_FPA_Z','R_FPA_Z',$/;"	v
+displayed_data	vicon_imu_data_process/process_rawdata.py	/^            displayed_data=data[['R_FOOT_Accel_X','R_FOOT_Accel_Y','R_FOOT_Accel_Z','R_GRF_X', 'R_GRF_Y', 'R_GRF_Z']]$/;"	v
+displayed_data	vicon_imu_data_process/process_rawdata.py	/^    displayed_data = data[['R_GRF_X','R_GRF_Y','R_GRF_Z']]$/;"	v
+displayed_variables	vicon_imu_data_process/process_rawdata.py	/^    displayed_variables = ['L_GRF_Z']$/;"	v
+draw_heatmap	vicon_imu_data_process/process_rawdata.py	/^    def draw_heatmap(*args,**kwargs):$/;"	f	function:plot_statistic_value_under_fpa
+drop_value	assessment/visualization.py	/^                                                                        drop_value = 0.0,$/;"	v
+drop_value	assessment/visualization.py	/^                                                                  drop_value = 0.0,$/;"	v
+estimated_variable	assessment/visualization.py	/^                                                                        estimated_variable = 'GRF',$/;"	v
+estimated_variable	assessment/visualization.py	/^                                                                  estimated_variable = 'GRF',$/;"	v
+estimated_variable	assessment/visualization.py	/^                                                   estimated_variable='GRF',$/;"	v
+estimated_variable_dirct	vicon_imu_data_process/const.py	/^estimated_variable_dirct = {'GRF': 'GRF_Z', 'GRFx':'GRF_X', 'GRFy': 'GRF_Y','KFM': 'KNEE_MOMENT_X', 'KAM':'KNEE_MOMENT_Y', 'KFA':'KNEE_ANGLE_X', 'KAA': 'KNEE_ANGLE_Y'}$/;"	v
+estimation_accuracy	assessment/visualization.py	/^def estimation_accuracy(estimation, actual, labels_names):$/;"	f
+evaluate_models_on_unseen_subjects	assessment/scores.py	/^def evaluate_models_on_unseen_subjects(combination_investigation_results, trials=None):$/;"	f
+extract_droplanding_period	vicon_imu_data_process/wearable_toolkit.py	/^    def extract_droplanding_period(self):$/;"	m	class:Visual3dCsvReader
+extract_droplanding_period	vicon_imu_data_process/wearable_toolkit.py	/^    def extract_droplanding_period(self):$/;"	m	class:XsenTxtReader
+extract_imu_fields	vicon_imu_data_process/const.py	/^extract_imu_fields = lambda imus, fields: [imu + "_" + field for imu in imus for field in fields]$/;"	v
+extract_subject_drop_landing_data	vicon_imu_data_process/process_rawdata.py	/^def extract_subject_drop_landing_data(sub_idx: int)->np.ndarray:$/;"	f
+extract_video_fields	vicon_imu_data_process/const.py	/^extract_video_fields = lambda videos, angles: [video + "_" + position + "_" + angle for video in videos$/;"	v
+fill_missing_marker	vicon_imu_data_process/wearable_toolkit.py	/^    def fill_missing_marker(self, calibrate_makers, motion_markers):$/;"	m	class:ViconCsvReader
+find_peak_max	vicon_imu_data_process/wearable_toolkit.py	/^    def find_peak_max(data_clip, height, width=None, prominence=None):$/;"	m	class:SageCsvReader
+generate_coordinate	vicon_imu_data_process/wearable_math.py	/^def generate_coordinate(points):$/;"	f
+generate_labels_csv	vicon_imu_data_process/wearable_toolkit.py	/^    def generate_labels_csv(self):$/;"	m	class:ViconCsvReader
+get_a_model_test_results	assessment/scores.py	/^def get_a_model_test_results(training_testing_folders, selection,**kwargs):$/;"	f
+get_angular_velocity	vicon_imu_data_process/wearable_toolkit.py	/^    def get_angular_velocity(self, segment, direction):$/;"	m	class:ViconCsvReader
+get_angular_velocity_theta	vicon_imu_data_process/wearable_toolkit.py	/^    def get_angular_velocity_theta(self, segment, check_len):$/;"	m	class:ViconCsvReader
+get_data_to_h5	vicon_imu_data_process/load_rawdata.py	/^    def get_data_to_h5(self):$/;"	m	class:V3DReader
+get_data_to_h5	vicon_imu_data_process/load_rawdata.py	/^    def get_data_to_h5(self):$/;"	m	class:ViconReader
+get_data_to_h5	vicon_imu_data_process/load_rawdata.py	/^    def get_data_to_h5(self):$/;"	m	class:XsenReader
+get_evaluation_metrics	assessment/scores.py	/^def get_evaluation_metrics(pd_labels, pd_predictions,verbose=0):$/;"	f
+get_field_data	vicon_imu_data_process/wearable_toolkit.py	/^    def get_field_data(self, sensor, field):$/;"	m	class:SageCsvReader
+get_first_event_index	vicon_imu_data_process/wearable_toolkit.py	/^    def get_first_event_index(self):$/;"	m	class:SageCsvReader
+get_frame_range	vicon_imu_data_process/wearable_toolkit.py	/^    def get_frame_range(self):$/;"	m	class:ViconCsvReader
+get_investigation_assessment	assessment/scores.py	/^def get_investigation_assessment(combination_investigation_results):$/;"	f
+get_investigation_metrics	assessment/scores.py	/^def get_investigation_metrics(combination_investigation_results, metric_fields=['r2']):$/;"	f
+get_investigation_training_testing_folders	assessment/scores.py	/^def get_investigation_training_testing_folders(combination_investigation_results, train_test_id=None):$/;"	f
+get_joint_angles	vicon_imu_data_process/wearable_toolkit.py	/^    def get_joint_angles(self, sub_info,joint):$/;"	m	class:ViconCsvReader
+get_list_investigation_metrics	assessment/visualization.py	/^def get_list_investigation_metrics(list_combination_investigation_results, metric_fields=['r2']):$/;"	f
+get_marker_position	vicon_imu_data_process/wearable_toolkit.py	/^    def get_marker_position(self, marker_name):$/;"	m	class:ViconCsvReader
+get_multi_models_test_results	assessment/scores.py	/^def get_multi_models_test_results(list_training_testing_folders, list_selection, **kwargs):$/;"	f
+get_norm	vicon_imu_data_process/wearable_toolkit.py	/^    def get_norm(self, sensor, field, is_plot=False):$/;"	m	class:SageCsvReader
+get_relative_position	vicon_imu_data_process/wearable_math.py	/^def get_relative_position(origin, x_axis, y_axis, z_axis, point):$/;"	f
+get_right_external_kam	vicon_imu_data_process/wearable_toolkit.py	/^    def get_right_external_kam(self, sub_info):$/;"	m	class:ViconCsvReader
+get_rotmatirx	vicon_imu_data_process/data_augment.py	/^def get_rotmatirx(rot_angles):$/;"	f
+get_rshank_angle	vicon_imu_data_process/wearable_toolkit.py	/^    def get_rshank_angle(self, direction):$/;"	m	class:ViconCsvReader
+get_subject_ids_names	vicon_imu_data_process/process_rawdata.py	/^def get_subject_ids_names(selected_subject_ids):$/;"	f
+get_subjects_trials	vicon_imu_data_process/process_rawdata.py	/^def get_subjects_trials(subjects_trials_dataset_path):$/;"	f
+get_testing_results	assessment/scores.py	/^def get_testing_results(testing_folder):$/;"	f
+get_walking_strike_off	vicon_imu_data_process/wearable_toolkit.py	/^    def get_walking_strike_off(self, strike_delay, off_delay, segment, cut_off_fre_strike_off=None,$/;"	m	class:SageCsvReader
+get_world_position	vicon_imu_data_process/wearable_math.py	/^def get_world_position(origin, x_axis, y_axis, z_axis, relative_point):$/;"	f
+hue	assessment/visualization.py	/^                                                                  hue = 'IMU number'$/;"	v
+hyperparams	vicon_imu_data_process/process_rawdata.py	/^    hyperparams={}$/;"	v
+imu_data_augment	vicon_imu_data_process/data_augment.py	/^def imu_data_augment(subjects_trials_dataset, rot_mats=None,save_to_hdf5=None):$/;"	f
+initParameters	training.py	/^def initParameters(labels_names=None,features_names=None):$/;"	f
+integrative_investigation	develop.py	/^def integrative_investigation(investigation_variables, prefix_name='', test_multi_trials=False,**kwargs):$/;"	f
+interp_data	vicon_imu_data_process/wearable_toolkit.py	/^    def interp_data(self,a_imu_txt):$/;"	m	class:XsenTxtReader
+inverse_estimated_variable_dict	vicon_imu_data_process/const.py	/^inverse_estimated_variable_dict = dict([val,key] for key,val in estimated_variable_dirct.items())$/;"	v
+inverse_norm	vicon_imu_data_process/process_rawdata.py	/^def inverse_norm(norm_datasets:np.ndarray, col_names:list, norm_type:str)->np.ndarray:$/;"	f
+investigation_config_results	assessment/scores.py	/^    investigation_config_results =  get_investigation_training_testing_folders(combination_investigation_results,'training_123113')$/;"	v
+investigation_variables	develop.py	/^investigation_variables={$/;"	v
+is_qualified_ron_event	vicon_imu_data_process/wearable_toolkit.py	/^    def is_qualified_ron_event(ron_i):$/;"	f	function:translate_step_event_to_step_id
+labels_fields	vicon_imu_data_process/process_rawdata.py	/^    labels_fields = ['L_GRF_X','L_GRF_Y','L_GRF_Z','R_GRF_X','R_GRF_Y','R_GRF_Z']$/;"	v
+landing_manner	assessment/visualization.py	/^                                                                        landing_manner='double_legs',$/;"	v
+landing_manner	assessment/visualization.py	/^                                                                  landing_manner='double_legs',$/;"	v
+landing_manner	assessment/visualization.py	/^                                                   landing_manner='double_legs', $/;"	v
+lineplot_IMU_number_LSTM_unit_accuracy	assessment/visualization.py	/^def lineplot_IMU_number_LSTM_unit_accuracy(combination_investigation_results, $/;"	f
+lineplot_IMU_number_LSTM_unit_execution_time	assessment/visualization.py	/^def lineplot_IMU_number_LSTM_unit_execution_time(combination_investigation_results, $/;"	f
+list_combination_investigation_results	assessment/visualization.py	/^        list_combination_investigation_results = [$/;"	v
+list_selections	assessment/visualization.py	/^        list_selections = [$/;"	v
+load_normalize_data	vicon_imu_data_process/process_rawdata.py	/^def load_normalize_data(hyperparams, scaler='standard', **kwargs):$/;"	f
+load_subjects_dataset	vicon_imu_data_process/process_rawdata.py	/^def load_subjects_dataset(subjects_trials=None, h5_file_name="features_labels_rawdatasets.hdf5"):$/;"	f
+load_trained_model	assessment/scores.py	/^def load_trained_model(training_folder, best_model=True):$/;"	f
+metrics	assessment/visualization.py	/^        metrics = get_list_investigation_metrics(combination_investigation_results)$/;"	v
+model_forecast	models/rnn_models.py	/^def model_forecast(model, series, hyperparams):$/;"	f
+model_v1	models/rnn_models.py	/^def model_v1(hyperparams):$/;"	f
+multi_subject_data	vicon_imu_data_process/process_rawdata.py	/^    multi_subject_data={}$/;"	v
+my_callbacks	models/rnn_models.py	/^def my_callbacks(training_folder):$/;"	f
+norm_datasets	vicon_imu_data_process/process_rawdata.py	/^def norm_datasets(datasets:np.ndarray,col_names:str,norm_type='mean_std')->np.ndarray:$/;"	f
+normalization_parameters	vicon_imu_data_process/process_rawdata.py	/^def normalization_parameters(row_idx,col_names,datarange="all_subject", norm_type="mean_std", raw_datasets_path=".\/datasets_files\/raw_datasets.hdf5"):$/;"	f
+parase_list_investigation_metrics	assessment/visualization.py	/^def parase_list_investigation_metrics(list_combination_investigation_results, landing_manner='all', estimated_variable='all', syn_features_label='both', use_frame_index =True, LSTM_unit='all', sensor_config='all',IMU_number='all', drop_value=None, metric_fields=['r2'],sort_variable=None):$/;"	f
+parase_plot_data	assessment/visualization.py	/^def parase_plot_data(combination_investigation_results, landing_manner='all', estimated_variable='all', syn_features_label='both', use_frame_index='both', LSTM_unit='all', sensor_config='all',IMU_number='all', drop_value=None, metric_fields=['r2'],sort_variable=None):$/;"	f
+parase_training_testing_folders	assessment/scores.py	/^def parase_training_testing_folders(investigation_config_results, landing_manner='all', estimated_variable='all', syn_features_label='both', use_frame_index='both', LSTM_unit='all', IMU_number='all', sensor_configurations='all'):$/;"	f
+partial_fit	vicon_imu_data_process/wearable_toolkit.py	/^    def partial_fit(self, X, y=None):$/;"	m	class:DivideMaxScalar
+pd_assessment	assessment/scores.py	/^    pd_assessment = evaluate_models_on_unseen_subjects(combination_investigation_results)$/;"	v
+plot_actual_estimation_curves	assessment/visualization.py	/^def plot_actual_estimation_curves(pd_labels, pd_predictions, testing_folder=None, fig_save_folder=None,**kwargs):$/;"	f
+plot_combination_investigation_results	assessment/visualization.py	/^def plot_combination_investigation_results(combination_investigation_results, investigation_variable='Sensor configuration', displayed_variables=['r2','r_rmse']):$/;"	f
+plot_estimation_accuracy	assessment/visualization.py	/^def plot_estimation_accuracy(pd_error, pd_NRMSE):$/;"	f
+plot_estimation_error	assessment/visualization.py	/^def plot_estimation_error(labels,predictions,labels_names,fig_save_folder=None,**kwargs):$/;"	f
+plot_history	assessment/visualization.py	/^def plot_history(history):$/;"	f
+plot_model_evaluation_on_unseen_subject	assessment/visualization.py	/^def plot_model_evaluation_on_unseen_subject(combination_investigation_results, investigation_variable='Sensor configurations', displayed_metrics = ['r2','r_rmse']):$/;"	f
+plot_prediction	assessment/visualization.py	/^def plot_prediction(pd_labels, pd_predictions, testing_folder,**kwargs):$/;"	f
+plot_prediction_statistic	assessment/visualization.py	/^def plot_prediction_statistic(features, labels, predictions,testing_folder):$/;"	f
+plot_rawdataset_curves	vicon_imu_data_process/process_rawdata.py	/^def plot_rawdataset_curves(datasets, col_names=None, figwidth=9.5, figheight=3, figtitle="Figure", show=False, col_wrap=3,  **args):$/;"	f
+plot_sensorconfig_investigation_results	assessment/visualization.py	/^def plot_sensorconfig_investigation_results(combination_investigation_results, landing_manner='both', estimated_variable='both', $/;"	f
+plot_sensorconfig_modelsize_investigation_results	assessment/visualization.py	/^def plot_sensorconfig_modelsize_investigation_results(combination_investigation_results, landing_manner='double_legs', estimated_variable='[GRF]', syn_features_label='both', LSTM_unit='all', IMU_number='all', title=None, drop_value=None, metric_fields=['r2']):$/;"	f
+plot_statistic_actual_estimation_curves	assessment/visualization.py	/^def plot_statistic_actual_estimation_curves(list_training_testing_folders, list_selections, **kwargs):$/;"	f
+plot_statistic_value_under_fpa	vicon_imu_data_process/process_rawdata.py	/^def plot_statistic_value_under_fpa(data: list, col_names:list, displayed_variables, subjects: list, trial_categories):$/;"	f
+plot_statistic_variables	vicon_imu_data_process/process_rawdata.py	/^def plot_statistic_variables(pd_variables,x='trial categories',y='PKAM',hue=None,col=None,col_wrap=None,kind='bar'):$/;"	f
+r2_metrics	assessment/scores.py	/^    r2_metrics = get_investigation_metrics(combination_investigation_results)$/;"	v
+read_rawdata	vicon_imu_data_process/process_rawdata.py	/^def read_rawdata(trials: int,col_names: list,raw_datasets_path=None,**args)-> np.ndarray:$/;"	f
+read_subject_trials	vicon_imu_data_process/process_rawdata.py	/^def read_subject_trials(subject_id_name: str, trials: int, data_fields: list, raw_datasets_path=None, **kwargs):$/;"	f
+reading	vicon_imu_data_process/wearable_toolkit.py	/^    def reading(file_path):$/;"	m	class:ViconCsvReader
+rigid_transform_3d	vicon_imu_data_process/wearable_toolkit.py	/^def rigid_transform_3d(a, b):$/;"	f
+rot_angles	vicon_imu_data_process/data_augment.py	/^    rot_angles = {'x_angles':np.linspace(-1,1,1),'y_angles':np.linspace(-1,1,1),'z_angles':np.linspace(-1,1,1)}$/;"	v
+rot_matrix	vicon_imu_data_process/data_augment.py	/^    rot_matrix = get_rotmatirx(rot_angles)$/;"	v
+rotation_matrix_to_euler_angles	vicon_imu_data_process/wearable_toolkit.py	/^def rotation_matrix_to_euler_angles(R):$/;"	f
+save_subjects_dataset_to_a_h5	vicon_imu_data_process/process_rawdata.py	/^def save_subjects_dataset_to_a_h5(subjects_trials_dataset, h5_file_name="augment_features_labels_rawdatasets.hdf5"):$/;"	f
+save_test_result	assessment/scores.py	/^def save_test_result(pd_features, pd_labels, pd_predictions, testing_folder):$/;"	f
+save_trained_model	models/rnn_models.py	/^def save_trained_model(trained_model,history,training_folder,**kwargs):$/;"	f
+save_training_process	vicon_imu_data_process/process_rawdata.py	/^def save_training_process(training_folder, loss):$/;"	f
+save_training_results	vicon_imu_data_process/process_rawdata.py	/^def save_training_results(training_folder, model, loss):$/;"	f
+selected_subject_ids	vicon_imu_data_process/process_rawdata.py	/^    selected_subject_ids=['P_08','P_09','P_10', 'P_11', 'P_12', 'P_13', 'P_14', 'P_15','P_16','P_17','P_18','P_19','P_20','P_21','P_22','P_23', 'P_24']$/;"	v
+selected_subject_ids_names	vicon_imu_data_process/process_rawdata.py	/^    selected_subject_ids_names = get_subject_ids_names(selected_subject_ids)$/;"	v
+set_subjects_trials	vicon_imu_data_process/process_rawdata.py	/^def set_subjects_trials(subject_ids=None, selected=True, landing_manner='double_legs', target_leg='R',selected_dataset=None):$/;"	f
+setup_plot	assessment/visualization.py	/^def setup_plot(g, **kwargs):$/;"	f
+split_dataset	vicon_imu_data_process/dataset.py	/^def split_dataset(norm_subjects_trials_data, train_subject_indices, test_subject_indices, hyperparams, model_type='tf_keras', test_multi_trials=False):$/;"	f
+subject_heights	vicon_imu_data_process/process_rawdata.py	/^    subject_heights = [float(subject_infos['body height'][sub_name]) for sub_name in selected_subject_ids_names]$/;"	v
+subject_id_name	assessment/scores.py	/^                                                                                subject_id_name=subject_id_name,$/;"	v
+subject_id_name	assessment/scores.py	/^    subject_id_name='P_10_zhangboyuan'$/;"	v
+subject_ids_names	vicon_imu_data_process/process_rawdata.py	/^    subject_ids_names = [ss for ss in subject_infos.index]$/;"	v
+subject_infos	vicon_imu_data_process/process_rawdata.py	/^    subject_infos = pd.read_csv(os.path.join(DATA_PATH, 'subject_info.csv'), index_col=0, header=0)$/;"	v
+subject_masses	vicon_imu_data_process/process_rawdata.py	/^    subject_masses = [float(subject_infos['body weight'][sub_name]) for sub_name in selected_subject_ids_names]$/;"	v
+subjects_trials	vicon_imu_data_process/data_augment.py	/^    subjects_trials = set_subjects_trials(selected=True, landing_manner='double_legs')$/;"	v
+subjects_trials_dataset	vicon_imu_data_process/data_augment.py	/^    subjects_trials_dataset = load_subjects_dataset(subjects_trials)$/;"	v
+syn_features_label	assessment/visualization.py	/^                                                                        syn_features_label = False,$/;"	v
+syn_features_label	assessment/visualization.py	/^                                                                  syn_features_label = False,$/;"	v
+syn_features_label	assessment/visualization.py	/^                                                   syn_features_label=False,$/;"	v
+syn_features_labels_events	vicon_imu_data_process/process_rawdata.py	/^def syn_features_labels_events(subjects_trials_data, hyperparams):$/;"	f
+sync_via_correlation	vicon_imu_data_process/wearable_toolkit.py	/^def sync_via_correlation(data1, data2, verbose=False):$/;"	f
+t1	assessment/visualization.py	/^        t1 = RESULT_FOLDER+"\/4_collected_sensor_lstm\/metrics.csv"$/;"	v
+t2	assessment/visualization.py	/^        t2 = RESULT_FOLDER+"\/4_collected_sensor_lstm\/6_7_8_imu\/6_7_8_imu_all_lstm\/metrics.csv"$/;"	v
+t3	assessment/visualization.py	/^        t3 = [$/;"	v
+t_left	assessment/visualization.py	/^        t_left = RESULT_FOLDER+"\/4_collected_sensor_lstm\/additional_single_imu\/metrics.csv"$/;"	v
+t_right	assessment/visualization.py	/^        t_right = RESULT_FOLDER+"\/2_collected_full_cv\/r2_metrics.csv"$/;"	v
+test_model	assessment/scores.py	/^def test_model(training_folder, xy_test, scaler, **kwargs):$/;"	f
+test_model_on_unseen_subject	assessment/scores.py	/^def test_model_on_unseen_subject(training_folder, subject_id_name=None, trials=None):$/;"	f
+test_model_on_unseen_trial	assessment/scores.py	/^def test_model_on_unseen_trial(training_folder, subject_id_name=None,trial='01',hyperparams=None,norm_subjects_trials_data=None, scaler=None):$/;"	f
+title	assessment/visualization.py	/^                                                                        title = ' estimation in double-leg drop landing',$/;"	v
+title	assessment/visualization.py	/^                                                                  title = ' estimation in double-leg drop landing',$/;"	v
+title	assessment/visualization.py	/^                                                   title=' estimation in double-leg drop landing',$/;"	v
+train_model	models/rnn_models.py	/^def train_model(model, hyperparams, train_set, valid_set, training_mode='Integrative_way'):$/;"	f
+train_model_narx	models/rnn_models.py	/^def train_model_narx(model, hyperparams, train_set, valid_set, training_mode='Integrative_way'):$/;"	f
+train_test_loops	training.py	/^def train_test_loops(hyperparams=None, fold_number=1, test_multi_trials=False):$/;"	f
+training_folder	assessment/scores.py	/^    training_folder =  get_investigation_training_testing_folders(combination_investigation_results,'training_123113')$/;"	v
+transfer_allsubject_to_a_h5	vicon_imu_data_process/load_rawdata.py	/^def transfer_allsubject_to_a_h5():$/;"	f
+transfer_rawdata_to_h5	vicon_imu_data_process/load_rawdata.py	/^def transfer_rawdata_to_h5():$/;"	f
+transform	vicon_imu_data_process/wearable_toolkit.py	/^    def transform(self, X):$/;"	m	class:DivideMaxScalar
+transform_to_step_events	vicon_imu_data_process/wearable_toolkit.py	/^    def transform_to_step_events(ron_i):$/;"	f	function:translate_step_event_to_step_id
+translate_step_event_to_step_id	vicon_imu_data_process/wearable_toolkit.py	/^def translate_step_event_to_step_id(events_dict, max_step_length):$/;"	f
+trial	assessment/scores.py	/^                                                                                trial=trial)$/;"	v
+trial	assessment/scores.py	/^    trial = '01'$/;"	v
+trial_categories	vicon_imu_data_process/process_rawdata.py	/^    trial_categories = ['baseline','fpa_01','fpa_02','fpa_03','fpa_04','fap_05']$/;"	v
+trial_categories	vicon_imu_data_process/process_rawdata.py	/^    trial_categories = ['fpa_01','fpa_02','fpa_03','fpa_04','fap_05']$/;"	v
+windowed_dataset	vicon_imu_data_process/dataset.py	/^def windowed_dataset(series, hyperparams,shuffle_buffer=1000):$/;"	f
+y	assessment/visualization.py	/^                                                                        y='execution_time'$/;"	v

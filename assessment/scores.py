@@ -10,6 +10,7 @@ import h5py
 import seaborn as sns
 import copy
 import re
+import multiprocessing
 
 if __name__=='__main__':
     sys.path.append('./../')
@@ -18,7 +19,7 @@ if __name__=='__main__':
 from vicon_imu_data_process.dataset import *
 from vicon_imu_data_process import process_rawdata as pro_rd
 
-from estimation_models.rnn_models import *
+from models.rnn_models import *
 
 from sklearn.metrics import r2_score, mean_squared_error as mse
 
@@ -145,6 +146,7 @@ def test_model(training_folder, xy_test, scaler, **kwargs):
     if('test_trial' in kwargs.keys()):
         hyperparams['test_trial'] = kwargs['test_trial']
 
+    # saving execution_time into hyperparams
     hyperparams['execution_time'] = execution_time
 
     hyperparams_file = os.path.join(testing_folder,"hyperparams.yaml")
@@ -229,11 +231,11 @@ def test_model_on_unseen_trial(training_folder, subject_id_name=None,trial='01',
         print(e, 'Trial: {} is not exist'.format(trial))
     
     # ----------------- estimation
-    [features, labels, predictions, testing_folder] = test_model(training_folder, xy_test, scaler, test_subject=subject_id_name,test_trial=trial)
+    [features, labels, predictions, testing_folder, execution_time] = test_model(training_folder, xy_test, scaler, test_subject=subject_id_name,test_trial=trial)
 
     # ----------- Print  scores of the estimation
     metrics = calculate_scores(labels,predictions)
-    print("Estimation metrics: (r2, mae, rmse, r_rmse) ", metrics)
+    print("Estimation metrics: (r2, mae, rmse, r_rmse) and execution time: ", metrics, execution_time)
     
     # ----------- Transfer labels and predictions into dadaframe
     pd_labels = pd.DataFrame(labels, columns=hyperparams['labels_names'])
@@ -328,6 +330,10 @@ def evaluate_models_on_unseen_subjects(combination_investigation_results, trials
             # get testing_folder and test id
             a_single_investigation_config_results = line.split('\t')
             testing_folder = a_single_investigation_config_results[-1]
+            if(not os.path.exists(testing_folder)):
+                pwd_folder=os.path.basename(os.path.dirname(combination_investigation_results))
+                pwd_base=os.path.dirname(os.path.dirname(combination_investigation_results))
+                testing_folder = os.path.join(pwd_base,re.search(pwd_folder+".*$",testing_folder).group(0))
         except Exception as e:
             pdb.set_trace()
 
@@ -736,58 +742,65 @@ def parase_training_testing_folders(investigation_config_results, landing_manner
 
 if __name__=='__main__':
 
+    if True:
+        #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/investigation/2022-05-13/094012/double_KFM_R_syn_5sensor_35testing_result_folders.txt"
+        #combination_investigation_results = RESULTS_PATH+"/2022-05-13/001/testing_result_folders.txt"
+
+        #combination_investigation_results = RESULTS_PATH+"/latest_train/testing_result_folders.txt"
+
+        combination_investigation_results = RESULTS_PATH+"/latest_train/testing_result_folders.txt"
+        combination_investigation_results = RESULTS_PATH+"/latest_train/10_14/testing_result_folders.txt"
+        combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/investigation/2022-05-24/205937/GRFtesting_result_folders.txt"
+        combination_investigation_results = RESULTS_PATH+"/latest_train_bk/08_30/testing_result_folders.txt"
+        combination_investigation_results = RESULTS_PATH+"/new_alignment/testing_result_folders.txt"
 
 
-    #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/investigation/2022-05-13/094012/double_KFM_R_syn_5sensor_35testing_result_folders.txt"
-    #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/2022-05-13/001/testing_result_folders.txt"
+        #combination_investigation_metrics = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/investigation/valid_results/metrics.csv"
 
-    #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/latest_train/testing_result_folders.txt"
+        #combination_investigation_results = RESULTS_PATH+"/1_collected_data/study_lstm_units_GRF/3_imu_all_units/testing_result_folders.txt"
+        #combination_investigation_results = RESULTS_PATH+"/1_collected_data/study_lstm_units_GRF/3_imu_all_units/testing_result_folders.txt"
+        #combination_investigation_results = RESULTS_PATH+"/2_collected_full_cv/2_imu_full_cv_all_trials/testing_result_folders.txt"
+        combination_investigation_results = RESULTS_PATH+"/training_testing/P5_results/execution_time_revision/testing_result_folders.txt"
+        
+        # multi process
+        #n_cpu = multiprocessing.cpu_count()
+        #print("CPU cores number:", n_cpu)
+        #proc = multiprocessing.Process(target=evaluate_models_on_unseen_subjects, args=(combination_investigation_results,))
+        #proc.start()
+        #proc.join()
 
-    combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/latest_train/testing_result_folders.txt"
-    combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/latest_train/10_14/testing_result_folders.txt"
-    combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/investigation/2022-05-24/205937/GRFtesting_result_folders.txt"
-    combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/latest_train_bk/08_30/testing_result_folders.txt"
-    combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/new_alignment/testing_result_folders.txt"
+        # single process    
+        pd_assessment = evaluate_models_on_unseen_subjects(combination_investigation_results)
 
+        
+    if False:
 
-    #combination_investigation_metrics = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/investigation/valid_results/metrics.csv"
-
-    #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/1_collected_data/study_lstm_units_GRF/3_imu_all_units/testing_result_folders.txt"
-    #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/1_collected_data/study_lstm_units_GRF/3_imu_all_units/testing_result_folders.txt"
-    #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/2_collected_full_cv/2_imu_full_cv_all_trials/testing_result_folders.txt"
-    combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/3_imu/3_imu_25_lstm_units/testing_result_folders.txt"
-    pd_assessment = evaluate_models_on_unseen_subjects(combination_investigation_results)
-    pdb.set_trace()
-
-
-
-
-
-    ##get_investigation_training_testing_folders(combination_investigation_results)
-    #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/latest_train/r2_metrics.csv"
-    #r2_metrics = get_investigation_metrics(combination_investigation_results)
+        ##get_investigation_training_testing_folders(combination_investigation_results)
+        #combination_investigation_results = RESULTS_PATH+"/latest_train/r2_metrics.csv"
+        #r2_metrics = get_investigation_metrics(combination_investigation_results)
 
 
-    combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/latest_train/001/testing_result_folders.txt"
-    #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/latest_train/001/metrics.csv"
-    combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/testing_result_folders.txt"
-    r2_metrics = get_investigation_metrics(combination_investigation_results)
+        combination_investigation_results = RESULTS_PATH+"/latest_train/001/testing_result_folders.txt"
+        #combination_investigation_results = RESULTS_PATH+"/latest_train/001/metrics.csv"
+        combination_investigation_results = RESULTS_PATH+"/4_collected_sensor_lstm/testing_result_folders.txt"
+        r2_metrics = get_investigation_metrics(combination_investigation_results)
 
 
-    pdb.set_trace()
+        pdb.set_trace()
 
-    #pd_assessment = evaluate_models_on_unseen_subjects(combination_investigation_results)
-
-
-    combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/latest_train/testing_result_folders.txt"
-    investigation_config_results =  get_investigation_training_testing_folders(combination_investigation_results,'training_123113')
-    print(investigation_config_results)
+        #pd_assessment = evaluate_models_on_unseen_subjects(combination_investigation_results)
 
 
-    training_folder =  get_investigation_training_testing_folders(combination_investigation_results,'training_123113')
-    print(training_folder)
-    subject_id_name='P_10_zhangboyuan'
-    trial = '01'
-    pd_predictions, pd_labels, testing_folder, metrics = test_model_on_unseen_trial(training_folder, 
+        combination_investigation_results = RESULTS_PATH+"/latest_train/testing_result_folders.txt"
+        investigation_config_results =  get_investigation_training_testing_folders(combination_investigation_results,'training_123113')
+        print(investigation_config_results)
+
+
+        training_folder =  get_investigation_training_testing_folders(combination_investigation_results,'training_123113')
+        print(training_folder)
+        subject_id_name='P_10_zhangboyuan'
+        trial = '01'
+        pd_predictions, pd_labels, testing_folder, metrics = test_model_on_unseen_trial(training_folder, 
                                                                                 subject_id_name=subject_id_name,
                                                                                 trial=trial)
+

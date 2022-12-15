@@ -1,13 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
 import sys
 sys.path.append("./../")
-
-
-
-
 ## %load ./../rnn_model.py
 #!/usr/bin/env python
 '''
@@ -24,8 +19,8 @@ import pandas as pd
 import yaml
 import h5py
 import vicon_imu_data_process.process_rawdata as pro_rd
-import estimation_assessment.scores as es_as
-import estimation_assessment.visualization as es_vl
+import assessment.scores as es_as
+import assessment.visualization as es_vl
 
 import seaborn as sns
 import copy
@@ -39,8 +34,8 @@ from vicon_imu_data_process.dataset import *
 from vicon_imu_data_process.process_rawdata import *
 
 
-from estimation_models.rnn_models import *
-from estimation_study import *
+from models.rnn_models import *
+from training import *
 from sklearn.preprocessing import StandardScaler
 
 from sklearn.model_selection import LeaveOneOut
@@ -235,12 +230,45 @@ def integrative_investigation(investigation_variables, prefix_name='', test_mult
 investigation_variables={
     "sensor_configurations":
                             {
-                                'FSTC': ['FOOT','SHANK','THIGH','CHEST'] # optimal config for vGRF during double-leg drop landing
+
+                                 'F': ['FOOT'],
+                                 'S': ['SHANK'],
+                                 'T': ['THIGH'],
+                                 'W': ['WAIST'],
+                                 'C': ['CHEST'],
+
+                                'FS': ['FOOT','SHANK'],
+                                'FT': ['FOOT','THIGH'],
+                                'FW': ['FOOT','WAIST'],
+                                'FC': ['FOOT','CHEST'],
+                                'ST': ['SHANK','THIGH'],
+                                'SW': ['SHANK','WAIST'],
+                                'SC': ['SHANK','CHEST'],
+                                'TW': ['THIGH','WAIST'], 
+                                'TC': ['THIGH', 'CHEST'],
+                                'WC': ['WAIST', 'CHEST']
+
+
+                             #   'FST': ['FOOT','SHANK','THIGH'], 
+                             #   'FSW': ['FOOT','SHANK','WAIST'],
+                             #   'FSC': ['FOOT','SHANK','CHEST'],
+                             #   'FTW': ['FOOT','THIGH','WAIST'],
+                             #   'FTC': ['FOOT','THIGH','CHEST'],
+                             #   'FWC': ['FOOT','WAIST', 'CHEST'],
+                             #   'STW': ['SHANK','THIGH','WAIST' ],
+                             #   'STC': ['SHANK','THIGH','CHEST' ],
+                             #   'SWC': ['SHANK','WAIST','CHEST' ],
+                             #   'TWC': ['THIGH','WAIST', 'CHEST']
+
+
+
+                                
+                                #'FSTC': ['FOOT','SHANK','THIGH','CHEST'] # optimal config for vGRF during double-leg drop landing
                              },
     
-    "syn_features_labels": [False],
-    "use_frame_index": [True],
-    'estimated_variables': [['GRF_Z']],
+    "syn_features_labels": [False], # syn features and labels using peak values
+    "use_frame_index": [True], # addd time index into features
+    'estimated_variables': [['KNEE_MOMENT_X']],
     "landing_manners": ['double_legs'],
     "window_size" :[4],
     "shift_step" : 1,
@@ -257,10 +285,9 @@ investigation_variables={
      #   'FST':['L_FOOT','L_SHANK','L_THIGH']
         'None':[]
     }
-
 }
 
 
 if __name__ == "__main__":
-    combination_investigation_results = integrative_investigation(investigation_variables,prefix_name='GRF_X',fold_number=16, test_multi_trials=True)
+    combination_investigation_results = integrative_investigation(investigation_variables, prefix_name='GRF_X',fold_number=16, test_multi_trials=True)
     print(combination_investigation_results)

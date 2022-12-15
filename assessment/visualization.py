@@ -24,7 +24,7 @@ from vicon_imu_data_process.const import SAMPLE_FREQUENCY
 if __name__ == '__main__':
     from scores import *
 else:
-    from estimation_assessment.scores import *
+    from assessment.scores import *
 
 '''
 Plot the estimation results
@@ -381,7 +381,7 @@ def setup_plot(g, **kwargs):
     elif(hasattr(g, 'axes') and isinstance): # multi subplots
         try:
             iter(g.axes)
-            pdb.set_trace()
+            #pdb.set_trace()
             [ax.grid(axis='both',which='major') for ax in g.axes]
             [ax.set_xlabel(xlabel) for ax in g.axes]
             [ax.set_ylabel('R2') for ax in g.axes]
@@ -1112,44 +1112,68 @@ def boxplot_single_imu_estimation_accuracy(combination_investigation_results):
 
 
 
+
+# The folders of the results
+RESULT_FOLDER=os.path.join(RESULTS_PATH, "/training_testing/P5_results")
+
 if __name__ == '__main__':
-
-    if True: # calculate metrics
-        combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/Four_variable_optimal_imu_config/KEM_single_leg/testing_result_folders.txt"
+        
+    if False: # calculate metrics
+        combination_investigation_results = RESULT_FOLDER+"/Four_variable_optimal_imu_config/KEM_single_leg/testing_result_folders.txt"
         metrics = get_list_investigation_metrics(combination_investigation_results)
-        combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/Four_variable_optimal_imu_config/vGRF_single_leg/testing_result_folders.txt"
-        metrics = get_list_investigation_metrics(combination_investigation_results)
-
-        combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/Four_variable_optimal_imu_config/vGRF_double_legs/testing_result_folders.txt"
+        combination_investigation_results = RESULT_FOLDER+"/Four_variable_optimal_imu_config/vGRF_single_leg/testing_result_folders.txt"
         metrics = get_list_investigation_metrics(combination_investigation_results)
 
-        combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/Four_variable_optimal_imu_config/KEM_double_legs/testing_result_folders.txt"
+        combination_investigation_results = RESULT_FOLDER+"/Four_variable_optimal_imu_config/vGRF_double_legs/testing_result_folders.txt"
         metrics = get_list_investigation_metrics(combination_investigation_results)
 
+        combination_investigation_results = RESULT_FOLDER+"/Four_variable_optimal_imu_config/KEM_double_legs/testing_result_folders.txt"
+        metrics = get_list_investigation_metrics(combination_investigation_results)
+
+
+
+    if False: #Fig. 5
+        combination_investigation_results = RESULT_FOLDER+"/1_collected_data/testing_result_folders.txt"
+        list_combination_investigation_results = [
+            RESULT_FOLDER+"/2_collected_full_cv/4_imu/testing_result_folders.txt",
+            RESULT_FOLDER+"/20_doubleKFM_collected_full_cv/5_imu/testing_result_folders.txt",
+            RESULT_FOLDER+"/21_singleGRF_collected_full_cv/5_imu/testing_result_folders.txt",
+            RESULT_FOLDER+"/22_singleKFM_collected_full_cv/5_imu/testing_result_folders.txt"
+        ]
+
+        list_selections = [
+            {'sensor_configurations': ['STWC']},
+            {'estimated_variable': 'KFM'},
+            {'estimated_variable': 'GRF'},
+            {'estimated_variable': 'KFM' }
+        ]
+
+        fig_path, metrics = plot_statistic_actual_estimation_curves(list_combination_investigation_results,
+                                                                list_selections)
 
     if False: # Fig. 6 IMU and LSTM line
-        combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/3_collected_modeling/additional_imu_all_imu_all_lstm_double_GRF/testing_result_folders.txt"
-        t1 = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/metrics.csv"
-        t2 = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/6_7_8_imu/6_7_8_imu_all_lstm/metrics.csv"
+        combination_investigation_results = RESULT_FOLDER+"/3_collected_modeling/additional_imu_all_imu_all_lstm_double_GRF/testing_result_folders.txt"
+        t1 = RESULT_FOLDER+"/4_collected_sensor_lstm/metrics.csv"
+        t2 = RESULT_FOLDER+"/4_collected_sensor_lstm/6_7_8_imu/6_7_8_imu_all_lstm/metrics.csv"
         t3 = [
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/1_imu/1_imu_125_175/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/1_imu/1_imu_25_lstm/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/2_imu/2_imu_25_lstm/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/2_imu/2_imu_75/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/3_imu/3_imu_25_lstm_units/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/3_imu/3_imu_75/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/3_imu/3_imu_125_175/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/1_imu/1_imu_125_175/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/1_imu/1_imu_25_lstm/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/2_imu/2_imu_25_lstm/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/2_imu/2_imu_75/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/3_imu/3_imu_25_lstm_units/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/3_imu/3_imu_75/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/3_imu/3_imu_125_175/metrics.csv",
 
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/4_imu/4_5_imu_125/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/4_imu/4_imu_25_lstm_units/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/4_imu/4_imu_75/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/4_imu/4_imu_175/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/5_imu/5_imu_25/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/5_imu/5_imu_75/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/5_imu/5_imu_125/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/5_imu/5_imu_175/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/6_7_8_imu/6_7_8_imu_25_lstm/metrics.csv",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/6_7_8_imu/75_125_175/metrics.csv"
+            RESULT_FOLDER+"/4_collected_sensor_lstm/4_imu/4_5_imu_125/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/4_imu/4_imu_25_lstm_units/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/4_imu/4_imu_75/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/4_imu/4_imu_175/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/5_imu/5_imu_25/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/5_imu/5_imu_75/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/5_imu/5_imu_125/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/5_imu/5_imu_175/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/6_7_8_imu/6_7_8_imu_25_lstm/metrics.csv",
+            RESULT_FOLDER+"/4_collected_sensor_lstm/6_7_8_imu/75_125_175/metrics.csv"
         ]
         combination_investigation_results = [t1, t2] +t3
         fig_path,metrics = lineplot_IMU_number_LSTM_unit_accuracy(combination_investigation_results,
@@ -1161,12 +1185,9 @@ if __name__ == '__main__':
                                                                   hue = 'IMU number'
                                                                  )
 
-
-    pdb.set_trace()
-    
     if False: # Fig. 7 execution time
-        # combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/execution_time/metrics.csv"
-        # combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/execution_time/testing_result_folders.txt"
+        # combination_investigation_results = RESULT_FOLDER+"/execution_time/metrics.csv"
+        # combination_investigation_results = RESULT_FOLDER+"/execution_time/testing_result_folders.txt"
         fig_path,metrics = lineplot_IMU_number_LSTM_unit_execution_time(combination_investigation_results,
                                                                         estimated_variable = 'GRF',
                                                                         landing_manner='double_legs',
@@ -1180,8 +1201,8 @@ if __name__ == '__main__':
         pdb.set_trace()
 
     if False: #  Fig. 8 
-        #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/3_collected_modeling/additional_imu_all_imu_all_lstm_double_GRF/8_imu_all_lstm_units/testing_result_folders.txt"
-        #combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/3_collected_modeling/additional_imu_all_imu_all_lstm_double_GRF/metrics.csv"
+        #combination_investigation_results = RESULT_FOLDER+"/3_collected_modeling/additional_imu_all_imu_all_lstm_double_GRF/8_imu_all_lstm_units/testing_result_folders.txt"
+        #combination_investigation_results = RESULT_FOLDER+"/3_collected_modeling/additional_imu_all_imu_all_lstm_double_GRF/metrics.csv"
         fig_path, r2 = boxplot_IMU_number_accuracy(combination_investigation_results,
                                                    landing_manner='double_legs', 
                                                    estimated_variable='GRF',
@@ -1194,28 +1215,10 @@ if __name__ == '__main__':
 
 
     if False: # Fig. 9
-        t_right = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/2_collected_full_cv/r2_metrics.csv"
-        t_left = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/4_collected_sensor_lstm/additional_single_imu/metrics.csv"
+        t_right = RESULT_FOLDER+"/2_collected_full_cv/r2_metrics.csv"
+        t_left = RESULT_FOLDER+"/4_collected_sensor_lstm/additional_single_imu/metrics.csv"
         combination_investigation_results = [t_right, t_left]
         boxplot_single_imu_estimation_accuracy(combination_investigation_results)
 
 
-
-    if False: #Fig. 5
-        combination_investigation_results = "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/1_collected_data/testing_result_folders.txt"
-        list_combination_investigation_results = [
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/2_collected_full_cv/4_imu/testing_result_folders.txt",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/20_doubleKFM_collected_full_cv/5_imu/testing_result_folders.txt",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/21_singleGRF_collected_full_cv/5_imu/testing_result_folders.txt",
-            "/media/sun/DATA/Drop_landing_workspace/suntao/Results/Experiment_results/training_testing/22_singleKFM_collected_full_cv/5_imu/testing_result_folders.txt"
-        ]
-
-        list_selections = [
-            {'sensor_configurations': ['STWC']},
-            {'estimated_variable': 'KFM'},
-            {'estimated_variable': 'GRF'},
-            {'estimated_variable': 'KFM' }
-        ]
-
-        fig_path, metrics = plot_statistic_actual_estimation_curves(list_combination_investigation_results,
-                                                                list_selections)
+    #------FOR tables, please see ipyth file

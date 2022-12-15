@@ -14,7 +14,7 @@ import pandas as pd
 import yaml
 import h5py
 import vicon_imu_data_process.process_rawdata as pro_rd
-import estimation_assessment.scores as es_as
+import assessment.scores as es_as
 
 import seaborn as sns
 import copy
@@ -25,15 +25,13 @@ from vicon_imu_data_process.const import FEATURES_FIELDS, LABELS_FIELDS, DATA_PA
 from vicon_imu_data_process.const import DROPLANDING_PERIOD, RESULTS_PATH
 from vicon_imu_data_process import const
 
-
 from sklearn.preprocessing import StandardScaler
-
 from sklearn.model_selection import LeaveOneOut
 from sklearn.model_selection import KFold
 import time as localtimepkg
 
 from vicon_imu_data_process.dataset import *
-from estimation_models.rnn_models import *
+from models.rnn_models import *
 
 
 '''
